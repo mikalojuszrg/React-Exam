@@ -2,7 +2,6 @@ import * as Yup from "yup";
 
 import { Form, Formik } from "formik";
 import { HOME_PATH, LOGIN_PATH } from "../../routes/const";
-import { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLoginUser, useRegisterUser } from "../../hooks/user";
 
@@ -11,6 +10,7 @@ import FormikInput from "../FormikInput/FormikInput";
 import { User } from "../../types/user";
 import { UserContext } from "../../contexts/UserContext";
 import { toast } from "react-hot-toast";
+import { useContext } from "react";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
