@@ -1,0 +1,14 @@
+@use "../../sass/utils/colorVariables.scss" as color;
+
+.input {
+  border: 1px solid color.$base-color-secondary;
+  padding: 1.8rem 0rem;
+  text-indent: 1rem;
+  border-radius: 1.7rem;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  &:focus {
+    outline: 0;
+  }
+}
