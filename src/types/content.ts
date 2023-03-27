@@ -1,6 +1,6 @@
 export type Content = {
   title: string;
   description: string;
-  id: number;
-  user_id: number;
+  id: number | null;
+  user_id: number | null;
 };
