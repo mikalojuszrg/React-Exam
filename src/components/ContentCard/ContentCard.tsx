@@ -1,4 +1,4 @@
-import { Content } from "../../types/content";
+import styles from "./ContentCard.module.scss";
 
 type ContentCardProps = {
   title: string;
@@ -7,7 +7,7 @@ type ContentCardProps = {
 
 const ContentCard = ({ title, description }: ContentCardProps) => {
   return (
-    <div>
+    <div className={styles.container}>
       <h2>{title}</h2>
       <p>{description}</p>
     </div>
