@@ -5,28 +5,43 @@ import { User } from "../types/user";
 interface UserContextType {
   user: User | null;
   setUser: (user: User | null) => void;
+  token: string | null;
+  setToken: (token: string | null) => void;
   isLoggedIn: boolean;
-  handleLogin: (user: User) => void;
 }
 
 const UserContext = createContext<UserContextType>({
   user: null,
   setUser: () => {},
+  token: null,
+  setToken: () => {},
   isLoggedIn: false,
-  handleLogin: () => {},
 });
 
 const UserProvider = ({ children }: PropsWithChildren) => {
   const [user, setUser] = useState<User | null>(null);
+  const [token, setToken] = useState<string | null>(null);
 
-  const isLoggedIn = !!user;
+  const isLoggedIn = !!user && !!token;
 
-  const handleLogin = (user: User) => {
-    setUser(user);
+  const handleSetUser = (newUser: User | null) => {
+    setUser(newUser);
+  };
+
+  const handleSetToken = (newToken: string | null) => {
+    setToken(newToken);
   };
 
   return (
-    <UserContext.Provider value={{ user, isLoggedIn, setUser, handleLogin }}>
+    <UserContext.Provider
+      value={{
+        user,
+        isLoggedIn,
+        setUser: handleSetUser,
+        token,
+        setToken: handleSetToken,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
