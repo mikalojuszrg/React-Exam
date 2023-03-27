@@ -5,6 +5,5 @@ export default defineConfig({
   plugins: [react()],
   define: {
     "process.env": {},
-    "import.meta.env.VITE_BASE_URL": JSON.stringify(process.env.BASE_URL),
   },
 });
