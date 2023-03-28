@@ -1,4 +1,9 @@
-import { ADD_PATH, HOME_PATH, LOGIN_PATH, REGISTER_PATH } from "./paths";
+import {
+  ADD_PATH,
+  HOME_PATH,
+  LOGIN_PATH,
+  REGISTER_PATH,
+} from "../consts/paths";
 import { AuthLayoutRoutes, MainLayoutRoutes } from "../types/routes";
 
 import AuthLayout from "../layouts/AuthLayout/AuthLayout";

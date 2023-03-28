@@ -1,4 +1,4 @@
-import { LOGIN_PATH, REGISTER_PATH } from "../../../routes/paths";
+import { LOGIN_PATH, REGISTER_PATH } from "../../../consts/paths";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import Button from "../../Button/Button";

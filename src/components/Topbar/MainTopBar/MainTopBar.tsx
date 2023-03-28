@@ -1,4 +1,4 @@
-import { ADD_PATH, HOME_PATH } from "../../../routes/paths";
+import { ADD_PATH, HOME_PATH } from "../../../consts/paths";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import Button from "../../Button/Button";

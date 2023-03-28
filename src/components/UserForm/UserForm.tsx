@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 import { Form, Formik } from "formik";
-import { HOME_PATH, LOGIN_PATH } from "../../routes/paths";
+import { HOME_PATH, LOGIN_PATH } from "../../consts/paths";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLoginUser, useRegisterUser } from "../../hooks/user";
 
@@ -24,6 +24,7 @@ const UserForm = () => {
   const { setUser, setToken, user, token } = useContext(UserContext);
   const { mutateAsync: registerUser } = useRegisterUser();
   const { mutateAsync: loginUser } = useLoginUser();
+
   const handleRegistration = (values: User) => {
     registerUser(values)
       .then((response) => {
@@ -36,11 +37,9 @@ const UserForm = () => {
   const handleLogin = (values: User) => {
     loginUser(values)
       .then((response) => {
-        console.log(response);
         setUser(values);
         setToken(response.token || null);
         navigate(HOME_PATH);
-        console.log(values);
         toast.success("Login successful");
       })
       .catch(() => toast.error("You've entered wrong details"));
@@ -67,7 +66,7 @@ const UserForm = () => {
               placeholder="Password"
             />
             <Button variant="primary" type="submit">
-              SUBMIT
+              {location.pathname === "/register" ? "REGISTER" : "LOGIN"}
             </Button>
           </Form>
         )}

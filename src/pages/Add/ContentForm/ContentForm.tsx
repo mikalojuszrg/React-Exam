@@ -1,18 +1,18 @@
 import * as Yup from "yup";
 
 import { Form, Formik } from "formik";
-import { useLocation, useNavigate } from "react-router-dom";
 
 import Button from "../../../components/Button/Button";
 import { Content } from "../../../types/content";
 import FormikInput from "../../../components/FormikInput/FormikInput";
 import FormikTextArea from "../../../components/FormikTextArea/FormikTextArea";
-import { HOME_PATH } from "../../../routes/paths";
+import { HOME_PATH } from "../../../consts/paths";
 import { UserContext } from "../../../contexts/UserContext";
 import styles from "./ContentForm.module.scss";
 import { toast } from "react-hot-toast";
 import { useContext } from "react";
 import { useCreateContent } from "../../../hooks/content";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required("Required"),
@@ -40,8 +40,8 @@ const ContentForm = () => {
       },
     })
       .then((response) => {
-        navigate(HOME_PATH);
         toast.success("Content created successfully");
+        navigate(HOME_PATH);
       })
       .catch(() => toast.error("You've entered wrong details"));
   };
