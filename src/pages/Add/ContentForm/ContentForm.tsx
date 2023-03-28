@@ -63,7 +63,7 @@ const ContentForm = () => {
             <FormikInput type="text" name="title" placeholder="Title" />
             <FormikTextArea name="description" placeholder="Description" />
             <Button variant="primary" type="submit">
-              SUBMIT
+              SUBMIT CONTENT
             </Button>
           </Form>
         )}
