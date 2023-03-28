@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 import { Form, Formik } from "formik";
-import { HOME_PATH, LOGIN_PATH } from "../../routes/const";
+import { HOME_PATH, LOGIN_PATH } from "../../routes/paths";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLoginUser, useRegisterUser } from "../../hooks/user";
 
@@ -9,6 +9,7 @@ import Button from "../Button/Button";
 import FormikInput from "../FormikInput/FormikInput";
 import { User } from "../../types/user";
 import { UserContext } from "../../contexts/UserContext";
+import styles from "./UserForm.module.scss";
 import { toast } from "react-hot-toast";
 import { useContext } from "react";
 
@@ -45,11 +46,8 @@ const UserForm = () => {
       .catch(() => toast.error("You've entered wrong details"));
   };
 
-  console.log(user);
-  console.log(token);
-
   return (
-    <div>
+    <div className={styles.container}>
       <Formik
         initialValues={{
           email: "",
@@ -61,7 +59,7 @@ const UserForm = () => {
         }
       >
         {() => (
-          <Form>
+          <Form className={styles.container__form}>
             <FormikInput type="email" name="email" placeholder="Email" />
             <FormikInput
               type="password"
