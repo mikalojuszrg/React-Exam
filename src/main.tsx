@@ -23,7 +23,7 @@ createRoot(rootElement).render(
     <UserProvider>
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Loading page...</div>}>
             <App />
           </Suspense>
           <Toaster />
