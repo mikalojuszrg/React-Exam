@@ -1,0 +1,15 @@
+@import "../../sass/mixins/mediaQueries.scss";
+
+.container {
+  display: grid;
+  gap: 2rem;
+  margin-top: 1rem;
+
+  @include medium {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include large {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
