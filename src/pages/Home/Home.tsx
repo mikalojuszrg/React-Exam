@@ -2,6 +2,7 @@ import { Content } from "../../types/content";
 import ContentCard from "../../components/ContentCard/ContentCard";
 import Loader from "../../components/Loader/Loader";
 import { UserContext } from "../../contexts/UserContext";
+import styles from "./Home.module.scss";
 import { useContent } from "../../hooks/content";
 import { useContext } from "react";
 
@@ -18,7 +19,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       {data.map(({ id, title, description }: Content) => (
         <ContentCard key={id} title={title} description={description} />
       ))}
