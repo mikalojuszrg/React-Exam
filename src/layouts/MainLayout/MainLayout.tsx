@@ -1,11 +1,12 @@
-import MainTopbar from "../../components/MainTopBar/MainTopBar";
+import MainTopbar from "../../components/Topbar/MainTopBar/MainTopBar";
 import { PropsWithChildren } from "react";
+import styles from "./MainLayout.module.scss";
 
 const MainLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div>
+    <div className={styles.container}>
       <MainTopbar />
-      <main>{children}</main>
+      <main className={styles.container__main}>{children}</main>
     </div>
   );
 };
