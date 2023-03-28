@@ -1,13 +1,13 @@
-import { PropsWithChildren } from "react";
+import { LazyExoticComponent, PropsWithChildren } from "react";
 
 type MainRoute = {
   path: "/" | "/add";
-  Component: () => JSX.Element;
+  Component: LazyExoticComponent<() => JSX.Element>;
 };
 
 type AuthRoute = {
   path: "/login" | "/register";
-  Component: () => JSX.Element;
+  Component: LazyExoticComponent<() => JSX.Element>;
 };
 
 export type MainLayoutRoutes = {

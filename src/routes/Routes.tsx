@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes as RoutesWrapper } from "react-router-dom";
+import { Suspense, useContext } from "react";
 import { authLayoutRoutes, mainLayoutRoutes } from "./const";
 
 import { UserContext } from "../contexts/UserContext";
-import { useContext } from "react";
 
 const Routes = () => {
   const { isLoggedIn } = useContext(UserContext);
@@ -16,7 +16,9 @@ const Routes = () => {
           path={path}
           element={
             <Layout>
-              <Component />
+              <Suspense fallback={<div>Loading page...</div>}>
+                <Component />
+              </Suspense>
             </Layout>
           }
         />

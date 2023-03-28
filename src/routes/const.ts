@@ -1,16 +1,14 @@
+import { ADD_PATH, HOME_PATH, LOGIN_PATH, REGISTER_PATH } from "./paths";
 import { AuthLayoutRoutes, MainLayoutRoutes } from "../types/routes";
 
-import Add from "../pages/Add/Add";
 import AuthLayout from "../layouts/AuthLayout/AuthLayout";
-import Home from "../pages/Home/Home";
-import Login from "../pages/Login/Login";
 import MainLayout from "../layouts/MainLayout/MainLayout";
-import Register from "../pages/Register/Register";
+import { lazy } from "react";
 
-export const LOGIN_PATH = "/login";
-export const REGISTER_PATH = "/register";
-export const HOME_PATH = "/";
-export const ADD_PATH = "/add";
+const Add = lazy(() => import("../pages/Add/Add"));
+const Home = lazy(() => import("../pages/Home/Home"));
+const Login = lazy(() => import("../pages/Login/Login"));
+const Register = lazy(() => import("../pages/Register/Register"));
 
 export const authLayoutRoutes: AuthLayoutRoutes = {
   Layout: AuthLayout,

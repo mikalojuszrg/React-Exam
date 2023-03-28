@@ -1,22 +1,31 @@
 import "./index.scss";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import React, { Suspense, lazy } from "react";
 
-import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import React from "react";
-import ReactDOM from "react-dom/client";
 import { Toaster } from "react-hot-toast";
 import { UserProvider } from "./contexts/UserContext";
+import { createRoot } from "react-dom/client";
 
 const queryClient = new QueryClient();
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+const App = lazy(() => import("./App"));
+
+const rootElement = document.getElementById("root");
+
+if (!rootElement) {
+  throw new Error("Could not find root element");
+}
+
+createRoot(rootElement).render(
   <React.StrictMode>
     <UserProvider>
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
-          <App />
+          <Suspense fallback={<div>Loading...</div>}>
+            <App />
+          </Suspense>
           <Toaster />
         </QueryClientProvider>
       </BrowserRouter>
