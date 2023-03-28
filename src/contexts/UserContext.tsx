@@ -2,13 +2,13 @@ import { PropsWithChildren, createContext, useState } from "react";
 
 import { User } from "../types/user";
 
-interface UserContextType {
+type UserContextType = {
   user: User | null;
   setUser: (user: User | null) => void;
   token: string | null;
   setToken: (token: string | null) => void;
   isLoggedIn: boolean;
-}
+};
 
 const UserContext = createContext<UserContextType>({
   user: null,
