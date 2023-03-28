@@ -1,4 +1,4 @@
-import ContentForm from "../../components/ContentForm/ContentForm";
+import ContentForm from "./ContentForm/ContentForm";
 
 const Add = () => {
   return (
