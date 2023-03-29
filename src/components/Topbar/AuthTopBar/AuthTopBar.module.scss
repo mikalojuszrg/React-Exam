@@ -1,0 +1,16 @@
+@use "../../../sass//utils//colorVariables.scss" as color;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__buttons {
+    display: flex;
+    gap: 0;
+  }
+
+  Button {
+    margin-right: 0.5rem;
+  }
+}
